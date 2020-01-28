@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "http://169.63.254.105:31417",
+    "target": "http://produce-service-port:8080",
     "secure": false,
     "loglevel": "debug"
   }

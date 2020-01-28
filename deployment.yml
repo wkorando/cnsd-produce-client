@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: produce-client
+  name: produce-client
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      run: produce-client
+  template:
+    metadata:
+      labels:
+        run: produce-client
+    spec:
+      containers:
+      - image: ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${IMAGE_TAG}
+        name: produce-client
+      terminationGracePeriodSeconds: 30
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    run: produce-client
+  name: produce-client-port
+  namespace: default
+spec:
+  selector:
+    run: produce-client-port
+  ports:
+    - port: 4200
+      name: http
+  type: NodePort
