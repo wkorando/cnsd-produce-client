@@ -19,9 +19,9 @@ services:
     service_id: hostedgit
     parameters:
       repo_url: 'https://github.com/wkorando/cnsd-produce-client'
-      repo_name: 'cnsd-produce-client'
+      repo_name: 'produce-client'
       type: clone
-      has_issues: true
+      has_issues: false
       enable_traceability: false
 
   # Pipelines
