@@ -30,7 +30,7 @@ metadata:
   namespace: default
 spec:
   selector:
-    run: produce-client-port
+    run: produce-client
   ports:
     - port: 4200
       name: http
