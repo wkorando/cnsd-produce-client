@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    run: produce-client
+  name: produce-client-port
+  namespace: default
+spec:
+  selector:
+    run: produce-client
+  ports:
+    - port: 4200
+      name: http
+  type: LoadBalancer
